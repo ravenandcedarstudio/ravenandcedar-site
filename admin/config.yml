@@ -1,0 +1,44 @@
+backend:
+  name: github
+  repo: ravenandcedarstudio/ravenandcedar-site
+  branch: main
+  base_url: https://oauth.ravenandcedarstudio.com
+
+media_folder: src/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Blog Posts
+    folder: src/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Excerpt, name: excerpt, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: settings
+    label: Site Settings
+    files:
+      - label: Contact Info
+        name: contact
+        file: src/_data/contact.json
+        fields:
+          - { label: Email, name: email, widget: string }
+          - { label: Instagram Handle, name: instagram, widget: string }
+          - { label: Facebook URL, name: facebook, widget: string }
+
+  - name: shop
+    label: Shop Items
+    folder: src/_data/shop
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Product Name, name: title, widget: string }
+      - { label: Price, name: price, widget: string }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Product Image, name: image, widget: image }
+      - { label: PayPal Button ID, name: paypal_id, widget: string }
+      - { label: Available, name: available, widget: boolean, default: true }

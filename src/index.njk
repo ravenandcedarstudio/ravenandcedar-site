@@ -1,0 +1,57 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+<section class="hero">
+  <h1>Raven and Cedar Studio</h1>
+  <p>Illustration, prints, and handmade goods — rooted in nature and story.</p>
+  <a href="/gallery/" class="btn">View Gallery</a>
+</section>
+
+<section>
+  <div class="page-header">
+    <h1>Recent Work</h1>
+    <p>A selection of the latest pieces.</p>
+  </div>
+  <div class="gallery-grid" id="gallery-preview"></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">×</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<script>
+  const imageFolder = '/images/';
+  const extensions = ['jpg','jpeg','png','webp','gif'];
+
+  async function loadPreview() {
+    const res = await fetch('/images/manifest.json').catch(() => null);
+    if (!res) return;
+    const files = await res.json();
+    const grid = document.getElementById('gallery-preview');
+    files.slice(0, 6).forEach(file => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.innerHTML = `<img src="/images/${file}" alt="${file.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ')}" loading="lazy">`;
+      item.addEventListener('click', () => openLightbox(`/images/${file}`, file));
+      grid.appendChild(item);
+    });
+  }
+
+  function openLightbox(src, alt) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-img').alt = alt;
+    document.getElementById('lightbox').classList.add('open');
+  }
+
+  document.getElementById('lightbox-close').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.remove('open');
+  });
+
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+  });
+
+  loadPreview();
+</script>

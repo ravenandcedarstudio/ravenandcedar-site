@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: Gallery
+---
+<div class="page-header">
+  <h1>Gallery</h1>
+  <p>Illustration, digital painting, and original works.</p>
+</div>
+
+<div class="gallery-grid" id="gallery-grid"></div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">×</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<script>
+  async function loadGallery() {
+    const res = await fetch('/images/manifest.json').catch(() => null);
+    if (!res) return;
+    const files = await res.json();
+    const grid = document.getElementById('gallery-grid');
+    files.forEach(file => {
+      const name = file.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.innerHTML = `
+        <img src="/images/${file}" alt="${name}" loading="lazy">
+        <div class="gallery-item-info">
+          <span class="gallery-item-title">${name}</span>
+        </div>`;
+      item.addEventListener('click', () => openLightbox(`/images/${file}`, name));
+      grid.appendChild(item);
+    });
+  }
+
+  function openLightbox(src, alt) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-img').alt = alt;
+    document.getElementById('lightbox').classList.add('open');
+  }
+
+  document.getElementById('lightbox-close').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.remove('open');
+  });
+
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+  });
+
+  loadGallery();
+</script>
