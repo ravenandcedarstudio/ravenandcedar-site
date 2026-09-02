@@ -440,3 +440,19 @@ img { max-width: 100%; display: block; }
   .nav-toggle { display: block; }
   .site-header { position: relative; }
 }
+
+/* ===== LOGO ===== */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  max-height: 64px;
+}
+
+.nav-logo-img {
+  height: 64px;
+  width: 64px;
+  max-height: 64px;
+  max-width: 64px;
+  object-fit: contain;
+  display: block;
+}
