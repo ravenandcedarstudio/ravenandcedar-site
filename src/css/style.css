@@ -362,3 +362,255 @@ img { max-width: 100%; display: block; }
     text-align: center;
   }
 }
+
+/* ===== ABOUT PAGE ===== */
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+  font-size: 2rem;
+  font-weight: normal;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.about-hero-text p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.about-hero-img img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about-mid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.about-mid img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.about-mid-text p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+@media (max-width: 680px) {
+  .about-mid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-section-heading {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--accent);
+  margin: 2rem 0 1rem;
+}
+
+.about-content > p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.about-img-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.about-img-pair img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about-closing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.about-closing-text p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.about-closing-img img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about-list {
+  color: var(--text-muted);
+  margin-left: 1.5rem;
+}
+
+.about-list li { margin-bottom: 0.4rem; }
+
+@media (max-width: 680px) {
+  .about-hero,
+  .about-closing {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-img { order: -1; }
+
+  .about-img-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .about-img-pair img { height: 250px; }
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+  font-size: 2rem;
+  font-weight: normal;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.about-hero-text p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.about-hero-img img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about-mid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.about-mid img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.about-mid-text p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+@media (max-width: 680px) {
+  .about-mid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-section-heading {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--accent);
+  margin: 2rem 0 1rem;
+}
+
+.about-content > p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.about-img-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.about-img-pair img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about-closing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.about-closing-text p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.about-closing-img img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about-list {
+  color: var(--text-muted);
+  margin-left: 1.5rem;
+}
+
+.about-list li { margin-bottom: 0.4rem; }
+
+@media (max-width: 680px) {
+  .about-hero,
+  .about-closing {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-img { order: -1; }
+
+  .about-img-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .about-img-pair img { height: 250px; }
+}
